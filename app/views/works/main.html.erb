@@ -4,15 +4,14 @@
 <p>Find me in app/views/works/index.html.erb</p>
 
 <section class="spotlight">
-  <% spotlight = Work.all.sample%>
-  Media Spotlight: <%= link_to spotlight.title%>
+  <% spotlight = Work.spotlight%>
+  Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id)%>
 </section>
 <%# Section for Media Spotlight, link to show page for selected media%>
 
 <section class="top">
   Top Movies
-<% movies = Work.where(media: "movie")%>
- <% movies = movies.sample(10) %>
+<% movies = Work.top_ten("movie")%>
   <ul>
   <% movies.each do |movie|%>
     <li>
@@ -30,8 +29,7 @@
 
 <section class="top">
   Top Books
-  <% books = Work.where(media: "book")%>
-  <% books = books.sample(10)%>
+  <% books = Work.top_ten("book")%>
   <ul>
     <% books.each do |book|%>
     <li>
@@ -49,8 +47,7 @@
 
 <section class="top">
   Top Albums
-  <% albums = Work.where(media: "album")%>
-  <% albums = albums.sample(10)%>
+  <% albums = Work.top_ten("album")%>
   <ul>
   <% albums.each do |album|%>
     <li>
