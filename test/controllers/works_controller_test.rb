@@ -44,27 +44,74 @@ describe WorksController do
   describe 'create' do
     it 'can create a new work' do
       work_hash = {
-        title: 'Test Title',
-        created_by: 'Test Creator',
-        published: 2019,
-        media: 'album'
+        work: {
+          title: 'Test Title',
+          created_by: 'Test Creator',
+          published: 2019,
+          media: 'album'
+        }
       }
 
       expect do
         post works_path, params: work_hash
       end.must_change 'Work.count', 1
     end
+
+    it 'will give bad request response if there are any errors' do
+      work_hash = {
+        work: {
+          title: '',
+          created_by: 'Fake Creator',
+          published: 2017,
+          media: 'book'
+        }
+      }
+
+      expect do
+        post works_path, params: work_hash
+      end.wont_change 'Work.count'
+
+      must_respond_with :bad_request
+    end
   end
 
-  #   it 'should get edit' do
-  #     get works_edit_url
-  #     value(response).must_be :successful?
-  #   end
+  describe 'edit' do
+    it 'should get edit' do
+      get edit_work_path(work.id)
+      value(response).must_be :successful?
+    end
 
-  #   it 'should get update' do
-  #     get works_update_url
-  #     value(response).must_be :successful?
-  #   end
+    it 'will respond with a redirect when attempting to edit a nonexistent work' do
+      get edit_work_path(-1)
+      must_respond_with :redirect
+    end
+  end
+
+  describe 'update' do
+    # why couldn't I use my YML instance here?
+    work = Work.last
+
+    work_hash = {
+      work: {
+        title: 'Across the Universe',
+        media: 'album',
+        created_by: 'Beatles Cover Band',
+        published: 2012
+      }
+    }
+
+    it 'can update an existing work' do
+      expect do
+        patch work_path(work.id), params: work_hash
+      end.wont_change 'Work.count'
+    end
+
+    it 'will redirect to the root page if given an invalid work' do
+      patch work_path(-1), params: work_hash
+
+      must_respond_with :redirect
+    end
+  end
 
   #   it 'should get destroy' do
   #     get works_destroy_url

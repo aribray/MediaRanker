@@ -1,32 +1,10 @@
 <h1>Create a New Piece of Media</h1>
 
 <main>
-  <% if @work.errors.any? %>
-    <ul class="errors">
-      <% @work.errors.each do |column, message| %>
-        <li>
-          <strong><%= column.capitalize %></strong> <%= message %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <%= form_with model: @work do |f| %>
-
-    <%= f.label :media %>
-    <%= f.select :media, [["Album"], ["Movie"], ["Book"]] %>
-
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :published %>
-    <%= f.text_field :published %> <%# change to drop_down date field%>
-
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <%= f.submit action_name, class: "new-work__submit-btn" %>
-
-  <% end %>
+  <%= render partial: "form", locals: {
+    form_class: "new-work",
+    intro_text: "Use this form to create a new work",
+    action_name: "Create Work"
+  } %>
 </main>
 <p>Find me in app/views/works/new.html.erb</p>
