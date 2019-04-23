@@ -48,7 +48,12 @@ class WorksController < ApplicationController
     redirect_to work_path(work.id) if is_successful
   end
 
-  def destroy; end
+  def destroy
+    work = Work.find_by(id: params[:id])
+
+    work.destroy
+    redirect_to root_path
+  end
 
   private
 

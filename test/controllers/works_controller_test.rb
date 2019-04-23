@@ -113,8 +113,15 @@ describe WorksController do
     end
   end
 
-  #   it 'should get destroy' do
-  #     get works_destroy_url
-  #     value(response).must_be :successful?
-  #   end
+  describe "destroy" do
+
+    it 'can delete a passenger' do
+      #Arrange - create a work
+      new_work = Work.create(title: "Red Rain", created_by: "George Smith", published: 2001)
+      expect {
+      delete work_path(new_work.id)
+      }.must_change 'Work.count', -1
+    
+    end
+  end
 end
