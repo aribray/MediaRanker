@@ -15,3 +15,11 @@ album:
   upvotes: 1
   description: All of my teenage angst in one album
   media: album
+
+album_two:
+  title: French Toast
+  created_by: Jack Johnson
+  published: 1990
+  upvotes: 0
+  description: Eatin' banana pancakes
+  media: album

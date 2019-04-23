@@ -42,7 +42,7 @@ class WorksController < ApplicationController
     if work.nil?
       redirect_to works_path
     else
-      is_successful = Work.update(work_params)
+      is_successful = work.update(work_params)
     end
 
     redirect_to work_path(work.id) if is_successful

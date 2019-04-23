@@ -115,12 +115,15 @@ describe WorksController do
 
   describe "destroy" do
 
-    it 'can delete a passenger' do
+    it 'can delete a work' do
       #Arrange - create a work
       new_work = Work.create(title: "Red Rain", created_by: "George Smith", published: 2001)
       expect {
       delete work_path(new_work.id)
       }.must_change 'Work.count', -1
+
+      must_respond_with :redirect
+      must_redirect_to root_path
     
     end
   end

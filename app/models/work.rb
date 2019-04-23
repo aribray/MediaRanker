@@ -1,22 +1,21 @@
 # frozen_string_literal: true
 
+require 'pry'
 class Work < ApplicationRecord
   validates :title, presence: true
 
-  # def top_ten
-  #   result = Work.group_by do |work|
-  #     work[:upvotes]
-  #   end
-  #   top_10 = []
+  def self.top_ten(media)
+    results = Work.where(media: media.to_s)
+    results = results.where.not(upvotes: 0)
+    results = results.order(upvotes: :desc)
 
-  #   if result.length <= 10
-  #     return result
-  #   else
-  #     10.times do |i|
-  #       top_10 << result[i]
-  #     end
-  #   end
+    if results.length <= 10
+      return results
+    else
+      results = results[0..9]
+    end
 
-  #   top_10
-  # end
+    results
+    # binding.pry
+  end
 end
