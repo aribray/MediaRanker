@@ -16,6 +16,16 @@ class Work < ApplicationRecord
     end
 
     results
-    # binding.pry
+  end
+
+  def self.spotlight
+    media = %w[movie album book].sample
+    selected = Work.top_ten(media).sample
+
+    if selected.nil?
+      self.spotlight
+    else
+      return selected
+    end
   end
 end

@@ -34,4 +34,11 @@ describe Work do
       expect(results).wont_include works(:album_two)
     end
   end
+
+  describe "spotlight" do 
+    spotlight = Work.spotlight
+    it "selects a random work from the top 10" do
+      expect(spotlight).must_be_kind_of Work
+    end
+  end
 end # end of describe Work block
