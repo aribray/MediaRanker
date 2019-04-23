@@ -1,0 +1,16 @@
+<h1><%= @work.title %></h1>
+<h2>Created By: <%=@work.created_by %></h2>
+
+<div>Published: <%=@work.published %></div>
+
+<div>Description: <%=@work.description%></div>
+
+<nav>
+  <%= link_to "Back to Media Ranks", works_path%>
+  <%= link_to "Edit", edit_work_path%>
+  <%= link_to "Upvote"%>
+  <%= link_to "Delete"%>
+</nav>
+
+<h1><%=@work.upvotes%> votes for this <%=@work.media%> </h1>
+<p>Find me in app/views/works/show.html.erb</p>

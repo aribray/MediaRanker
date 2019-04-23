@@ -1,0 +1,58 @@
+<h2>All Media</h2>
+
+<p>Find me in app/views/works/index.html.erb</p>
+
+<section class="albums">
+  Albums
+  <% albums = Work.where(media: "album")%>
+  <ul>
+  <% albums.each do |album|%>
+    <li>
+      Title: <%= link_to album.title, work_path(album.id)%>
+    </li>
+    <li>
+      Created By: <%= album.created_by%>
+    </li>
+    <li>
+      Upvote: <%= link_to "Upvote Button"%>
+    </li>
+  <%end%>
+  <%# will need to figure out table display%>
+</section>
+<%# Section for Media Spotlight, link to show page for selected media%>
+
+<section class="books">
+  Books
+  <% books = Work.where(media: "book")%>
+  <ul>
+    <% books.each do |book|%>
+    <li>
+      Title: <%= link_to book.title, work_path(book.id)%>
+    </li>
+    <li>
+      Created By: <%= book.created_by%>
+    </li>
+    <li>
+      Upvotes: <%= link_to "Upvote Button"%>
+    </li>
+  <%end%>
+  <%# will need to figure out table display%>
+</section>
+
+<section class="movies">
+ Movies
+ <% movies = Work.where(media: "movie")%>
+  <ul>
+  <% movies.each do |movie|%>
+    <li>
+      Title: <%= link_to movie.title, work_path(movie.id)%>
+    </li>
+    <li>
+      Created By: <%= movie.created_by%>
+    </li>
+    <li>
+      Upvotes: <%= movie.upvotes%>
+    </li>
+  <%end%>
+  <%# will need to figure out table display%>
+</section>

@@ -1,0 +1,68 @@
+<h1>Media Ranker</h1>
+
+
+<p>Find me in app/views/works/index.html.erb</p>
+
+<section class="spotlight">
+  <% spotlight = Work.all.sample%>
+  Media Spotlight: <%= link_to spotlight.title%>
+</section>
+<%# Section for Media Spotlight, link to show page for selected media%>
+
+<section class="top">
+  Top Movies
+<% movies = Work.where(media: "movie")%>
+ <% movies = movies.sample(10) %>
+  <ul>
+  <% movies.each do |movie|%>
+    <li>
+      Title: <%= link_to movie.title, work_path(movie.id)%>
+    </li>
+    <li>
+      Created By: <%= movie.created_by%>
+    </li>
+    <li>
+      Upvotes: <%= movie.upvotes%>
+    </li>
+  <%end%>
+  <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>
+</section>
+
+<section class="top">
+  Top Books
+  <% books = Work.where(media: "book")%>
+  <% books = books.sample(10)%>
+  <ul>
+    <% books.each do |book|%>
+    <li>
+      Title: <%= link_to book.title, work_path(book.id)%>
+    </li>
+    <li>
+      Created By: <%= book.created_by%>
+    </li>
+    <li>
+      Upvotes: <%= book.upvotes%>
+    </li>
+  <%end%>
+  <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>
+</section>
+
+<section class="top">
+  Top Albums
+  <% albums = Work.where(media: "album")%>
+  <% albums = albums.sample(10)%>
+  <ul>
+  <% albums.each do |album|%>
+    <li>
+      Title: <%= link_to album.title, work_path(album.id)%>
+    </li>
+    <li>
+      Created By: <%= album.created_by%>
+    </li>
+    <li>
+      Upvotes: <%= album.upvotes%>
+    </li>
+  <%end%>
+  <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>
+</section>
+<%# 3 columns, Top Movies, Top Books, Top Albums %>

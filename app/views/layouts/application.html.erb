@@ -9,6 +9,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<nav>
+  <ul>
+    <li>
+      <%= link_to "Top Media", root_path %>
+    </li>
+    <li>
+      <%= link_to "All Media", works_path %>
+    </li>
+    <li>
+      <%= link_to "Add New Work", new_work_path %>
+    </li>
+    <li>
+      View All Users
+    </li>
+  </ul>
+<%# link_to top media, all media, add new work, view all users%>
+</nav>
+
   <body>
     <%= yield %>
   </body>

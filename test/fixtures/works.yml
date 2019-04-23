@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+book:
+  title: The Warmth of Other Suns
+  created_by: Isabel Wilkerson
+  published: 2010
+  upvotes: 1
+  description: Story of the Great Migration
+  media: book
+
+album:
+  title: Misery Business
+  created_by: Paramore
+  published: 2008
+  upvotes: 1
+  description: All of my teenage angst in one album
+  media: album
