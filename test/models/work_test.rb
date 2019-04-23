@@ -30,15 +30,23 @@ describe Work do
       expect(results.length).must_equal 1
     end
 
-    it "can return only works that have upvotes" do 
+    it 'can return only works that have upvotes if at least one work has upvotes' do
       expect(results).wont_include works(:album_two)
     end
   end
 
-  describe "spotlight" do 
+  describe 'spotlight' do
+    # Why is spotlight ever nil?
     spotlight = Work.spotlight
-    it "selects a random work from the top 10" do
+
+    it 'selects a random work from the top 10 of a media category' do
       expect(spotlight).must_be_kind_of Work
+    end
+
+    it 'will return nil if there are no works' do
+      Work.destroy_all
+      spotlight = Work.spotlight
+      expect(spotlight).must_equal nil
     end
   end
 end # end of describe Work block

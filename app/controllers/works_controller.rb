@@ -44,7 +44,6 @@ class WorksController < ApplicationController
     else
       is_successful = work.update(work_params)
     end
-
     redirect_to work_path(work.id) if is_successful
   end
 

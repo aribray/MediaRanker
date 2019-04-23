@@ -109,7 +109,7 @@ describe WorksController do
     it 'will redirect to the root page if given an invalid work' do
       patch work_path(-1), params: work_hash
 
-      must_respond_with :redirect
+      must_respond_with :redirect 
     end
   end
 

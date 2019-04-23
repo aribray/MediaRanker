@@ -1,13 +1,11 @@
 <h1>Media Ranker</h1>
 
 
-<p>Find me in app/views/works/index.html.erb</p>
-
 <section class="spotlight">
-  <% spotlight = Work.spotlight%>
-  Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id)%>
+  <%spotlight = Work.spotlight%>
+  Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id)%> by <%= spotlight.created_by%>
+  <p><%=spotlight.upvotes%> upvotes. <%= spotlight.description %></p>
 </section>
-<%# Section for Media Spotlight, link to show page for selected media%>
 
 <section class="top">
   Top Movies
@@ -24,7 +22,6 @@
       Upvotes: <%= movie.upvotes%>
     </li>
   <%end%>
-  <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>
 </section>
 
 <section class="top">

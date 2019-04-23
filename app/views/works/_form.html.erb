@@ -12,7 +12,7 @@
   <%= form_with model: @work, class: form_class do |f| %>
 
     <%= f.label :media %>
-    <%= f.select :media, [["Album"], ["Movie"], ["Book"]] %>
+    <%= f.select :media, [["album"], ["movie"], ["book"]] %>
 
     <%= f.label :title %>
     <%= f.text_field :title %>

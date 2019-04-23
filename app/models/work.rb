@@ -9,6 +9,8 @@ class Work < ApplicationRecord
     results = results.where.not(upvotes: 0)
     results = results.order(upvotes: :desc)
 
+    results = Work.where(media: media.to_s) if results.empty?
+
     if results.length <= 10
       return results
     else
@@ -19,13 +21,8 @@ class Work < ApplicationRecord
   end
 
   def self.spotlight
-    media = %w[movie album book].sample
-    selected = Work.top_ten(media).sample
+    spotlight = Work.order(upvotes: :desc).first
 
-    if selected.nil?
-      self.spotlight
-    else
-      return selected
-    end
+    spotlight
   end
 end

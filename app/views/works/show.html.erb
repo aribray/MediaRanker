@@ -1,5 +1,5 @@
 <h1><%= @work.title %></h1>
-<h2>Created By: <%=@work.created_by %></h2>
+<h3>Created By: <%=@work.created_by %></h3>
 
 <div>Published: <%=@work.published %></div>
 
@@ -7,10 +7,9 @@
 
 <nav>
   <%= link_to "Back to Media Ranks", works_path%>
-  <%= link_to "Edit", edit_work_path%>
-  <%= link_to "Upvote"%>
-  <%= link_to "Delete"%>
+  <%= link_to "Edit", edit_work_path(@work.id)%>
+  <%= link_to "Upvote", class: "btn btn-success" %> <%#this will work once I have a path #%>
+  <%= link_to "Delete", work_path(@work.id), class: "btn btn-danger"%>
 </nav>
 
-<h1><%=@work.upvotes%> votes for this <%=@work.media%> </h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<h4><%=@work.upvotes%> votes for this <%=@work.media%> </h4>
