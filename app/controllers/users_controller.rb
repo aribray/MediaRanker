@@ -9,13 +9,12 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.find_by(username: params[:user][:username])
-    if user.nil?
-      user = User.create(username: params[:user][:username])
-      session[:user_id] = user.id
+    if @user.nil?
+      @user = User.create(username: params[:user][:username])
+      session[:user_id] = @user.id
     else
       # elsif @user.valid?
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
     end
     redirect_to root_path
   end
