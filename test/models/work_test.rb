@@ -4,6 +4,7 @@ require 'test_helper'
 
 describe Work do
   let(:album) { works(:album) }
+  let(:user) {users(:one)}
 
   it 'must be valid' do
     value(album).must_be :valid?
@@ -21,6 +22,15 @@ describe Work do
       expect(valid_work).must_equal false
       expect(album.errors.messages).must_include :title
       expect(album.errors.messages[:title]).must_equal ["can't be blank"]
+    end
+  end
+
+  describe "relationships" do
+    it "can be voted on" do
+      album.upvote_by user
+
+      expect(album.cached_votes_total).must_equal 1
+      expect(user.voted_for?(album)).must_equal true
     end
   end
 
