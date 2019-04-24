@@ -21,4 +21,11 @@ describe User do
     expect(user.errors.messages[:username]).must_equal ["can't be blank"]
   end
 
+  # it 'must have a unique username' do
+  #   user = User.create(username: 'MyString')
+
+  #   expect(user.save).must_equal false
+  # end
+
+  
 end

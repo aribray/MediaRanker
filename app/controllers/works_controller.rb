@@ -2,13 +2,13 @@
 
 require 'pry'
 class WorksController < ApplicationController
+  before_action :find_individual_work, only: %i[show edit update destroy]
+
   def index
     @works = Work.all
   end
 
   def show
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
     redirect_to works_path if @work.nil?
   end
 
@@ -29,14 +29,10 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find_by(id: params[:id])
-
     redirect_to works_path if @work.nil?
   end
 
   def update
-    @work = Work.find_by(id: params[:id])
-
     if @work.nil?
       redirect_to works_path
     else
@@ -47,13 +43,20 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    work = Work.find_by(id: params[:id])
-
-    work.destroy
+    if @work.nil?
+      flash[:error] = 'That work does not exist'
+    else
+      @work.destroy
+      flash[:success] = "#{@work.title} deleted"
+    end
     redirect_to root_path
   end
 
   private
+
+  def find_individual_work
+    @work = Work.find_by(id: params[:id])
+  end
 
   def work_params
     params.require(:work).permit(:media, :title, :created_by, :published, :description, :votes)
