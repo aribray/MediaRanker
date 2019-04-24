@@ -23,7 +23,7 @@
         <td><%=album.title%></td>
         <td><%=album.created_by%></td>
         <td><%=album.published%></td>
-        <td>Upvote</td>
+        <td><%= link_to "Upvote", vote_path(album.id), method: :post %></td>
       </tr>
       <% end %>
   <%else%>
@@ -53,7 +53,7 @@
         <td><%=book.title%></td>
         <td><%=book.created_by%></td>
         <td><%=book.published%></td>
-        <td>Upvote</td>
+        <td><%= link_to "Upvote", vote_path(book.id), method: :post %></td>
       </tr>
       <% end %>
   <%else%>
@@ -83,7 +83,7 @@
         <td><%=movie.title%></td>
         <td><%=movie.created_by%></td>
         <td><%=movie.published%></td>
-        <td>Upvote</td>
+        <td><%= link_to "Upvote", vote_path(movie.id), method: :post %></td>
       </tr>
     <%end%>
   <%else%>

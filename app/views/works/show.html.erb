@@ -8,7 +8,7 @@
 <nav>
   <%= link_to "Back to Media Ranks", works_path%>
   <%= link_to "Edit", edit_work_path(@work.id)%>
-  <%= link_to "Upvote", class: "btn btn-success" %> <%#this will work once I have a path #%>
+  <%= link_to "Upvote",vote_path(@work.id), method: :post, class: "btn btn-success" %> <%#this will work once I have a path #%>
   <%= link_to "Delete", work_path(@work.id), class: "btn btn-danger"%>
 </nav>
 

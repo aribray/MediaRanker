@@ -3,12 +3,12 @@
 Rails.application.routes.draw do
   root to: 'works#main'
   resources :works
-  # get 'works/index'
-  # get 'works/show'
-  # get 'works/new'
-  # get 'works/create'
-  # get 'works/edit'
-  # get 'works/update'
-  # get 'works/destroy'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  post '/vote/:id', to: 'users#vote', as: 'vote'
+  get '/login', to: 'users#login_form', as: 'login'
+  post '/login', to: 'users#login'
+  post '/logout', to: 'users#logout', as: 'logout'
+  get '/users/current', to: 'users#current', as: 'current_user'
+
+  
 end

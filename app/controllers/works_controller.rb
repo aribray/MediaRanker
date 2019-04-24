@@ -2,8 +2,6 @@
 
 require 'pry'
 class WorksController < ApplicationController
-  def main; end
-
   def index
     @works = Work.all
   end
@@ -37,14 +35,15 @@ class WorksController < ApplicationController
   end
 
   def update
-    work = Work.find_by(id: params[:id])
+    @work = Work.find_by(id: params[:id])
 
-    if work.nil?
+    if @work.nil?
       redirect_to works_path
     else
-      is_successful = work.update(work_params)
+      is_successful = @work.update(work_params)
     end
-    redirect_to work_path(work.id) if is_successful
+
+    redirect_to work_path(@work.id) if is_successful
   end
 
   def destroy
@@ -57,6 +56,6 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:media, :title, :created_by, :published, :description)
+    params.require(:work).permit(:media, :title, :created_by, :published, :description, :votes)
   end
 end

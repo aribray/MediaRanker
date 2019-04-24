@@ -4,6 +4,8 @@ require 'pry'
 class Work < ApplicationRecord
   validates :title, presence: true
 
+  acts_as_votable
+
   def self.top_ten(media)
     results = Work.where(media: media.to_s)
     results = results.where.not(upvotes: 0)

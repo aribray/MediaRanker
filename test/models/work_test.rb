@@ -33,13 +33,15 @@ describe Work do
     it 'can return only works that have upvotes if at least one work has upvotes' do
       expect(results).wont_include works(:album_two)
     end
+
   end
 
   describe 'spotlight' do
     # Why is spotlight ever nil?
-    spotlight = Work.spotlight
+    
 
-    it 'selects a random work from the top 10 of a media category' do
+    it 'selects a random work from a media category' do
+      spotlight = Work.spotlight
       expect(spotlight).must_be_kind_of Work
     end
 
