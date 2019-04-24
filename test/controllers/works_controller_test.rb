@@ -109,24 +109,20 @@ describe WorksController do
     it 'will redirect to the root page if given an invalid work' do
       patch work_path(-1), params: work_hash
 
-      must_respond_with :redirect 
+      must_respond_with :redirect
     end
   end
 
-  describe "destroy" do
-
+  describe 'destroy' do
     it 'can delete a work' do
-      #Arrange - create a work
-      new_work = Work.create(title: "Red Rain", created_by: "George Smith", published: 2001)
-      expect {
-      delete work_path(new_work.id)
-      }.must_change 'Work.count', -1
+      # Arrange - create a work
+      new_work = Work.create(title: 'Red Rain', created_by: 'George Smith', published: 2001)
+      expect do
+        delete work_path(new_work.id)
+      end.must_change 'Work.count', -1
 
       must_respond_with :redirect
       must_redirect_to root_path
-    
     end
   end
-
-  
 end

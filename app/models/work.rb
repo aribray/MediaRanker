@@ -5,11 +5,12 @@ class Work < ApplicationRecord
   validates :title, presence: true
 
   acts_as_votable
+  has_many :votes
 
   def self.top_ten(media)
     results = Work.where(media: media.to_s)
-    results = results.where.not(upvotes: 0)
-    results = results.order(upvotes: :desc)
+    results = results.where.not(cached_votes_total: 0)
+    results = results.order(cached_votes_total: :desc)
 
     results = Work.where(media: media.to_s) if results.empty?
 
@@ -23,7 +24,7 @@ class Work < ApplicationRecord
   end
 
   def self.spotlight
-    spotlight = Work.order(upvotes: :desc).first
+    spotlight = Work.order(cached_votes_total: :desc).first
 
     spotlight
   end

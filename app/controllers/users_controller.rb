@@ -46,8 +46,6 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       @work.upvote_by user
-      @work.upvotes = Vote.where(votable_id: @work.id).length
-      @work.save
       redirect_to work_path(@work.id)
     end
   end

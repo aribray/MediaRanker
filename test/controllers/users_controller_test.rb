@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
+require 'pry'
 
 describe UsersController do
   let(:user) { users(:one) }
@@ -9,11 +10,17 @@ describe UsersController do
   #   flunk "Need real tests"
   # end
 
-  describe 'vote' do
-    it 'must add votes to the upvote field' do
-      post vote_path
+  # describe 'vote' do
+  #   it 'must get found response from vote action' do
+  #     post vote_path(media.id)
+  #     must_respond_with :found
+  #   end
 
-    binding.pry
-    end
-  end
+  #   it 'adds an upvote to a Work record' do
+  #     post vote_path(media.id)
+  #     # binding.pry
+
+  #     expect(media.cached_votes_total).must_equal 1
+  #   end
+  # end
 end

@@ -12,4 +12,4 @@
   <%= link_to "Delete", work_path(@work.id), class: "btn btn-danger"%>
 </nav>
 
-<h4><%=@work.upvotes%> votes for this <%=@work.media%> </h4>
+<h4><%=@work.cached_votes_total%> votes for this <%=@work.media%> </h4>

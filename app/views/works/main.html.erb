@@ -4,7 +4,7 @@
 <section class="spotlight">
   <%spotlight = Work.spotlight%>
   Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id)%> by <%= spotlight.created_by%>
-  <p><%=spotlight.upvotes%> upvotes. <%= spotlight.description %></p>
+  <p><%=spotlight.cached_votes_total%> upvotes. <%= spotlight.description %></p>
 </section>
 
 <section class="top">
@@ -19,7 +19,7 @@
       Created By: <%= movie.created_by%>
     </li>
     <li>
-      Upvotes: <%= movie.upvotes%>
+      Upvotes: <%= movie.cached_votes_total%>
     </li>
   <%end%>
 </section>
@@ -36,7 +36,7 @@
       Created By: <%= book.created_by%>
     </li>
     <li>
-      Upvotes: <%= book.upvotes%>
+      Upvotes: <%= book.cached_votes_total%>
     </li>
   <%end%>
   <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>
@@ -54,7 +54,7 @@
       Created By: <%= album.created_by%>
     </li>
     <li>
-      Upvotes: <%= album.upvotes%>
+      Upvotes: <%= album.cached_votes_total%>
     </li>
   <%end%>
   <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>

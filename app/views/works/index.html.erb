@@ -5,6 +5,7 @@
 <section class="album">
   <h3>Albums</h3>
   <% albums = Work.where(media: "album")%>
+  <% albums = albums.order(cached_votes_total: :desc)%>
   <% if albums.length > 0 %>
     <table class="table">
     <thead>
@@ -19,7 +20,7 @@
     <tbody>
     <% albums.each do |album| %>
       <tr>
-        <th scope="row"><%=album.upvotes%></th>
+        <th scope="row"><%=album.cached_votes_total%></th>
         <td><%=album.title%></td>
         <td><%=album.created_by%></td>
         <td><%=album.published%></td>
@@ -35,6 +36,7 @@
 <section class="books">
   <h3>Books</h3>
   <% books = Work.where(media: "book")%>
+  <% books = books.order(cached_votes_total: :desc)%>
   <% if books.length > 0 %>
     <table class="table">
     <thead>
@@ -49,7 +51,7 @@
     <tbody>
     <% books.each do |book| %>
       <tr>
-        <th scope="row"><%=book.upvotes%></th>
+        <th scope="row"><%=book.cached_votes_total%></th>
         <td><%=book.title%></td>
         <td><%=book.created_by%></td>
         <td><%=book.published%></td>
@@ -65,6 +67,7 @@
 <section class="movies">
   <h3>Movies</h3>
   <% movies = Work.where(media: "movie")%>
+  <% movies = movies.order(cached_votes_total: :desc)%>
   <% if movies.length > 0 %>
     <table class="table">
     <thead>
@@ -79,7 +82,7 @@
     <tbody>
     <% movies.each do |movie| %>
       <tr>
-        <th scope="row"><%=movie.upvotes%></th>
+        <th scope="row"><%=movie.cached_votes_total%></th>
         <td><%=movie.title%></td>
         <td><%=movie.created_by%></td>
         <td><%=movie.published%></td>

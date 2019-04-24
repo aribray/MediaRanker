@@ -4,7 +4,7 @@ book:
   title: The Warmth of Other Suns
   created_by: Isabel Wilkerson
   published: 2010
-  upvotes: 1
+  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -12,7 +12,7 @@ album:
   title: Misery Business
   created_by: Paramore
   published: 2008
-  upvotes: 1
+  cached_votes_total: 1
   description: All of my teenage angst in one album
   media: album
 
@@ -20,6 +20,6 @@ album_two:
   title: French Toast
   created_by: Jack Johnson
   published: 1990
-  upvotes: 0
+  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album
