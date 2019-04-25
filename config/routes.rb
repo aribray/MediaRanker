@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'works#main'
   resources :works
 
-  get 'users/', to: 'users#index', as: 'users'
+  get 'users', to: 'users#index', as: 'users'
   get '/users/current', to: 'users#current', as: 'current_user'
   get '/users/:id', to: 'users#show', as: 'user'
 
