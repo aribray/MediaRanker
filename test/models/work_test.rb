@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-
+require 'pry'
 describe Work do
   let(:album) { works(:album) }
   let(:user) {users(:one)}
@@ -35,21 +35,19 @@ describe Work do
   end
 
   describe 'top_10 method' do
-    results = Work.top_ten('album')
-    it 'can pick the top 10 most upvoted works' do
-      expect(results.length).must_equal 1
+    it 'will return up to 10 works (if no works have upvotes, will return 10 works)' do
+      results = Work.top_ten('book')
+      expect(results.length).must_equal 10
     end
 
     it 'can return only works that have upvotes if at least one work has upvotes' do
-      expect(results).wont_include works(:album_two)
+      results = Work.top_ten('album')
+      expect(results.length).must_equal 4
     end
 
   end
 
-  describe 'spotlight' do
-    # Why is spotlight ever nil?
-    
-
+  describe 'spotlight' do    
     it 'selects a random work from a media category' do
       spotlight = Work.spotlight
       expect(spotlight).must_be_kind_of Work

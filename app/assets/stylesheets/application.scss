@@ -24,7 +24,6 @@ h1, h2, h3, h4, h5 {
 }
 
 /* default body styling */
-
 body {
   margin: 0;
   font-size: 1rem;
@@ -45,7 +44,6 @@ h1, .h1 {
 /* end default body styling */
 
 /* navigation styling */
-
 .main_nav {
   display: flex;
   flex-direction: row;
@@ -96,7 +94,6 @@ a {
 /* end navigation styling */
 
 /* navigation button formatting */
-
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
@@ -109,7 +106,6 @@ a {
 /* end navigation button formatting */
 
 /* top 10 and spotlight styling */
-
 a, h2, h3 {
   color: #26A69A;
 }
@@ -193,7 +189,6 @@ small {
 .spotlight_link {
   border-bottom: 2px solid;
 }
-
 /* end top 10 and spotlight styling */
 
 

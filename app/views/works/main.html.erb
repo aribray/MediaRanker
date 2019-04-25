@@ -1,11 +1,8 @@
-
-
-
 <main>
   <section class="spotlight">
     <%spotlight = Work.spotlight%>
     <h2 class="spotlight_header">Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id),class:"spotlight_link"%> by <%= spotlight.created_by%></h2>
-    <p class="spotlight_description"><%=spotlight.cached_votes_total%> upvotes. <%= spotlight.description %></p>
+    <p class="spotlight_description"><%=spotlight.cached_votes_total%> votes. <%= spotlight.description %></p>
   </section>
 
   <section class="top_ten_container">

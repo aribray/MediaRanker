@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('owl.png') %>
   </head>
 
   <header class="header">
@@ -36,13 +37,11 @@
         <li class="nav-item">
             <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", current_user_path, class:"btn btn-primary" %>
         </li>
-          <%#{User.find_by(id: session[:user_id]).username} #%>
         <%end%>
         <li class="nav-item">
           <%= link_to "Log Out", logout_path, method: :post, class:"btn btn-primary" %>
         </li>
       </ul>
-    <%# link_to top media, all media, add new work, view all users%>
     </nav>
   </header>
 

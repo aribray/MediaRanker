@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :works
 
   get '/users', to: 'users#index', as: 'users'
+  
+  # combine current user with users#show?
   get '/users/current', to: 'users#current', as: 'current_user'
   get '/users/:id', to: 'users#show', as: 'user'
 

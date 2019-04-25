@@ -2,7 +2,6 @@
 
 require 'test_helper'
 
-
 describe WorksController do
   let(:work) { works(:book) }
 
@@ -88,7 +87,6 @@ describe WorksController do
   end
 
   describe 'update' do
-    # why couldn't I use my YML instance here?
     work = Work.last
 
     work_hash = {
