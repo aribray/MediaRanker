@@ -6,6 +6,35 @@ require 'pry'
 describe UsersController do
   let(:media) { Work.create(title: 'test work') }
 
+  describe "index" do
+    it "should get index" do
+      get users_path
+
+      must_respond_with :success
+    end
+  end
+
+  describe "show" do
+    it "should respond with OK for an existing, valid user" do
+      valid_user_id = users(:one).id
+
+      get user_path(valid_user_id)
+
+      must_respond_with :success
+    end
+
+    it "should give a flash notice instead of showing a nonexistent user" do
+      user = users(:one)
+      invalid_user_id = user.id
+      user.destroy
+
+      get user_path(invalid_user_id)
+
+      expect(flash[:error]).must_equal "Unknown user"
+      must_respond_with :redirect
+    end
+  end
+
   describe 'login' do
     it 'successfully logs in a user' do
       login_as

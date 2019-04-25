@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    if @user.nil?
+      flash[:error] = 'Unknown user'
+
+      redirect_to users_path
+    end
   end
 
   def login_form

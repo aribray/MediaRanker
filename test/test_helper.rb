@@ -23,22 +23,6 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # def login_as(user = nil)
-  #   logout_path
-  #   user ||= User.first
-
-  #   user = User.first
-  #   params = {
-  #     user: {
-  #       username: user.username
-  #     }
-  #   }
-  #   post login_path, params: params
-
-  #   expect(session[:user_id]).must_equal user.id
-  #   user
-  # end
-
   def login_as(user = nil)
     user ||= User.first
     params = {
