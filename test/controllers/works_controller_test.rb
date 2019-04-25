@@ -101,6 +101,7 @@ describe WorksController do
     }
 
     it 'can update an existing work' do
+      work = works(:album)
       expect do
         patch work_path(work.id), params: work_hash
       end.wont_change 'Work.count'

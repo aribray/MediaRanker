@@ -61,6 +61,7 @@ describe UsersController do
 
       post vote_path(media.id)
       expect(flash[:error]).must_equal 'You can only vote for a work once!'
+      must_respond_with :redirect
     end
   end
 end

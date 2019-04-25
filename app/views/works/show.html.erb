@@ -13,3 +13,26 @@
 </nav>
 
 <h4><%=@work.cached_votes_total%> votes for this <%=@work.media%> </h4>
+
+<section class="work">
+  <% voters = @work.votes_for.up.by_type(User).voters%>
+  <% if voters.length > 0 %>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Date</th>
+      </tr> 
+    </thead>
+    <tbody>
+    <% voters.each do |voter| %>
+      <tr>
+        <th scope="row"><%=voter.username%></th>
+      <td><%= readable_date(voter.updated_at)%>
+      </tr>
+      <% end %>
+  <%else%>
+  <% end %>
+  </tbody>
+</table>
+</section>

@@ -4,6 +4,15 @@ require 'pry'
 
 class UsersController < ApplicationController
   before_action :find_user, only: %i[current logout vote]
+
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+  end
+
   def login_form
     @user = User.new
   end
@@ -27,14 +36,13 @@ class UsersController < ApplicationController
   end
 
   def logout
-    unless @user.nil?
-      session[:user_id] = nil
-      redirect_to root_path
-    end
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
   def vote
     @work = Work.find_by(id: params[:id])
+
     if @user.nil?
       flash[:error] = 'You must log in before voting!'
       redirect_to root_path

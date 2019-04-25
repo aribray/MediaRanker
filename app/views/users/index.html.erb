@@ -1,0 +1,25 @@
+<h2>List of Users</h2>
+
+<section class="users">
+  <% if @users.length > 0 %>
+      <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Joined</th>
+        </tr> 
+      </thead>
+      <tbody>
+      <% @users.each do |user|%>
+        <tr>
+          <th scope="row"><%= link_to "#{user.username}", show_path(user.id)%></th>
+          <td><%=user.find_voted_items.size%>
+          <td><%= readable_date(user.updated_at)%>
+        </tr>
+        <% end %>
+    <%else%>
+    <% end %>
+    </tbody>
+  </table>
+</section>
