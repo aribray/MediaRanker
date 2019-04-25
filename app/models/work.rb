@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 class Work < ApplicationRecord
   validates :title, presence: true
 

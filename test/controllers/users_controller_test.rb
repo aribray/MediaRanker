@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require 'pry'
 
 describe UsersController do
   let(:media) { Work.create(title: 'test work') }

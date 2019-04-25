@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 
 class UsersController < ApplicationController
   before_action :find_user, only: %i[current logout vote]

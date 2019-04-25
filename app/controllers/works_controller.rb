@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 class WorksController < ApplicationController
   before_action :find_individual_work, only: %i[show edit update destroy]
 
