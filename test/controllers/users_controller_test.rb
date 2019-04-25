@@ -4,7 +4,7 @@ require 'test_helper'
 require 'pry'
 
 describe UsersController do
-  # let(:media) { Work.create(title: 'test work') }
+  let(:media) { Work.create(title: 'test work') }
 
   describe 'login' do
     it 'successfully logs in a user' do
@@ -35,20 +35,18 @@ describe UsersController do
   end
 
   describe 'vote' do
-    # it 'must change cached_votes_total of the work' do
-    #   login_as
-    #   media = Work.create(title: 'new work')
-    #   post vote_path(media.id)
+    it 'must change cached_votes_total of the work' do
+      login_as
+      media = works(:album)
+      post vote_path(media.id)
 
-    #   must_respond_with :found
+      must_respond_with :found
 
-    #   expect(media.cached_votes_total).must_equal 1
-    # end
+      expect(media.cached_votes_total).must_equal 1
+    end
 
     # a guest user cannot vote unless they're logged in
     it 'prohibits a guest user from voting until they have logged in' do
-      media = Work.create(title: 'new work')
-
       post vote_path(media.id)
 
       expect(flash[:error]).must_equal 'You must log in before voting!'
@@ -56,6 +54,13 @@ describe UsersController do
     end
 
     it 'prohibits a user from voting for a Work if they have already voted for it' do
+      login_as
+      media = works(:album)
+      post vote_path(media.id)
+      must_respond_with :found
+
+      post vote_path(media.id)
+      expect(flash[:error]).must_equal 'You can only vote for a work once!'
     end
   end
 end
