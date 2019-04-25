@@ -6,10 +6,10 @@
 <div>Description: <%=@work.description%></div>
 
 <nav>
-  <%= link_to "Back to Media Ranks", works_path%>
-  <%= link_to "Edit", edit_work_path(@work.id)%>
-  <%= link_to "Upvote",vote_path(@work.id), method: :post, class: "btn btn-success" %> 
-  <%= link_to "Delete", work_path(@work.id), class: "btn btn-danger"%>
+  <%= link_to "Back to Media Ranks", works_path, class: "btn btn-primary"%>
+  <%= link_to "Edit", edit_work_path(@work.id), class: "btn btn-primary"%>
+  <%= link_to "Upvote",vote_path(@work.id), method: :post, class: "btn btn-primary" %> 
+  <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger"%>
 </nav>
 
 <h4><%=@work.cached_votes_total%> votes for this <%=@work.media%> </h4>

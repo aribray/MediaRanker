@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-
 class UsersController < ApplicationController
-  before_action :find_user, only: %i[current logout vote]
+  before_action :find_user, only: %i[current logout vote show index]
 
   def index
     @users = User.all
@@ -62,6 +61,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
+    session[:user_id] = nil if User.find_by(id: session[:user_id]).nil?
     @user = User.find_by(id: session[:user_id])
   end
 end
