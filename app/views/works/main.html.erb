@@ -1,62 +1,58 @@
-<h1>Media Ranker</h1>
 
 
-<section class="spotlight">
-  <%spotlight = Work.spotlight%>
-  Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id)%> by <%= spotlight.created_by%>
-  <p><%=spotlight.cached_votes_total%> upvotes. <%= spotlight.description %></p>
-</section>
 
-<section class="top">
-  Top Movies
-<% movies = Work.top_ten("movie")%>
-  <ul>
-  <% movies.each do |movie|%>
-    <li>
-      Title: <%= link_to movie.title, work_path(movie.id)%>
-    </li>
-    <li>
-      Created By: <%= movie.created_by%>
-    </li>
-    <li>
-      Upvotes: <%= movie.cached_votes_total%>
-    </li>
-  <%end%>
-</section>
+<main>
+  <section class="spotlight">
+    <%spotlight = Work.spotlight%>
+    <h2 class="spotlight_header">Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id),class:"spotlight_link"%> by <%= spotlight.created_by%></h2>
+    <p class="spotlight_description"><%=spotlight.cached_votes_total%> upvotes. <%= spotlight.description %></p>
+  </section>
 
-<section class="top">
-  Top Books
-  <% books = Work.top_ten("book")%>
-  <ul>
-    <% books.each do |book|%>
-    <li>
-      Title: <%= link_to book.title, work_path(book.id)%>
-    </li>
-    <li>
-      Created By: <%= book.created_by%>
-    </li>
-    <li>
-      Upvotes: <%= book.cached_votes_total%>
-    </li>
-  <%end%>
-  <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>
-</section>
+  <section class="top_ten_container">
+    <section class="top">
+      <h2 class="top_ten_header">Top Movies</h2>
+      <% movies = Work.top_ten("movie")%>
+      <ul class="list-group top_ten_list">
+        <% movies.each do |movie|%>
+        <li class="list-group-item">
+          <h4>
+            <%= link_to movie.title, work_path(movie.id)%>
+            <small class="top_creator">by <%= movie.created_by%></small>  
+          </h4>
+          <p><%= movie.cached_votes_total%> votes</p>
+        </li>       
+      <%end%>
+    </section>
 
-<section class="top">
-  Top Albums
-  <% albums = Work.top_ten("album")%>
-  <ul>
-  <% albums.each do |album|%>
-    <li>
-      Title: <%= link_to album.title, work_path(album.id)%>
-    </li>
-    <li>
-      Created By: <%= album.created_by%>
-    </li>
-    <li>
-      Upvotes: <%= album.cached_votes_total%>
-    </li>
-  <%end%>
-  <%# may need an iteration over list of works from the "top_10" method in the model to print an unordered list of them%>
-</section>
-<%# 3 columns, Top Movies, Top Books, Top Albums %>
+    <section class="top">
+      <h2 class="top_ten_header">Top Books</h2>
+      <% books = Work.top_ten("book")%>
+      <ul class="list-group top_ten_list">
+        <% books.each do |book|%>
+        <li class="list-group-item">
+          <h4>
+            <%= link_to book.title, work_path(book.id)%>
+            <small class="top_creator">by <%= book.created_by%></small>  
+          </h4>
+          <p><%= book.cached_votes_total%> votes</p>
+        </li> 
+      <%end%>
+    </section>
+
+    <section class="top">
+      <h2 class="top_ten_header">Top Albums</h2>
+      <% albums = Work.top_ten("album")%>
+      <ul class="list-group top_ten_list">
+      <% albums.each do |album|%>
+        <li class="list-group-item">
+          <h4>
+            <%= link_to album.title, work_path(album.id)%>
+            <small class="top_creator">by <%= album.created_by%></small>  
+          </h4>
+          <p><%= album.cached_votes_total%> votes</p>
+        </li> 
+      <%end%>
+    </section>
+  <section>
+</main>
+
