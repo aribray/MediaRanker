@@ -20,14 +20,16 @@
     </thead>
     <tbody>
     <% votes.each do |work| %>
+      <% work = Work.find_by(id: work.work_id)%>
+      <% if work != nil%>
       <tr>
         <th scope="row"><%=work.title%></th>
         <td><%=work.created_by%>
         <td><%=work.published%>
         <td><%=work.media%>
         <td><%= readable_date(work.created_at)%>
-        <td><%= work.similar_items(n_results: 1).title%></td>
       </tr>
+      <%end%>
       <% end %>
   <%else%>
   <% end %>

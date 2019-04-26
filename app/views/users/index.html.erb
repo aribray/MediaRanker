@@ -15,7 +15,7 @@
       <% @users.each do |user|%>
         <tr>
           <th scope="row"><%= link_to "#{user.username}", user_path(user.id)%></th>
-          <td><%=@user.votes.length%>
+          <td><%=user.votes.length%>
           <td><%= readable_date(user.updated_at)%>
         </tr>
         <% end %>

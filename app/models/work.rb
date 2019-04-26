@@ -11,7 +11,7 @@ class Work < ApplicationRecord
 
   def self.top_ten(media)
     results = Work.where(media: media.to_s)
-    results = results.sort_by {|result| result.votes.length}
+    results = results.sort_by {|result| result.votes.length}.reverse
 
     results = Work.where(media: media.to_s) if results.empty?
 
@@ -26,7 +26,8 @@ class Work < ApplicationRecord
 
   def self.spotlight
     works = Work.all
-    spotlight = works.sort_by {|work| work.votes.length}
+    spotlight = works.sort_by {|work| work.votes.length}.reverse
     spotlight.first
   end
+
 end

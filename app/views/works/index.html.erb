@@ -3,7 +3,7 @@
 <section class="album">
   <h3>Albums</h3>
   <% albums = Work.where(media: "album")%>
-  <% albums = albums.sort_by {|work| work.votes.length}%>
+  <% albums = albums.sort_by {|work| work.votes.length}.reverse%>
   <% if albums.length > 0 %>
     <table class="table">
     <thead>
@@ -34,7 +34,7 @@
 <section class="books">
   <h3>Books</h3>
   <% books = Work.where(media: "book")%>
-  <% books = books.sort_by { |book| book.votes.length}%>
+  <% books = books.sort_by { |book| book.votes.length}.reverse%>
   <% if books.length > 0 %>
     <table class="table">
     <thead>
@@ -65,7 +65,7 @@
 <section class="movies">
   <h3>Movies</h3>
   <% movies = Work.where(media: "movie")%>
-  <% movies = movies.sort_by { |movie| movie.votes.length}%>
+  <% movies = movies.sort_by { |movie| movie.votes.length}.reverse%>
   <% if movies.length > 0 %>
     <table class="table">
     <thead>

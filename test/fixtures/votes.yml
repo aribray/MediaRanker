@@ -1,40 +1,40 @@
 vote1:
-  user_id: 1
-  work_id: book
+  user: one
+  work: book.id
 
 vote2:
-  user_id: 1
-  work_id: book1
+  user: one
+  work: book1.id
 
 vote3:
-  user_id: 2
-  work_id: book1
+  user: two
+  work: book1.id
 
 vote4:
-  user_id: 2
-  work_id: book2
+  user: two
+  work: book2.id
 
 vote5:
-  user_id: 1
-  work_id: book3
+  user: one
+  work: book3.id
 
 vote6:
-  user_id: 2
-  work_id: album
+  user: two
+  work: album.id
 
 vote7:
-  user_id: 1
-  work_id: album
+  user: one
+  work: album.id
 
 vote8:
-  user_id: 1
-  work_id: album_two
+  user: one
+  work: album_two.id
 
 vote9:
-  user_id: 2
-  work_id: album_three
+  user: two
+  work: album_three.id
 
 vote10:
-  user_id: 2
-  work_id: album_four
+  user: two
+  work: album_four.id
 

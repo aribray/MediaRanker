@@ -23,9 +23,9 @@ describe UsersController do
     end
 
     it 'should give a flash notice instead of showing a nonexistent user' do
-      user = users(:one)
-      invalid_user_id = user.id
-      user.destroy
+      # user = users(:one)
+      invalid_user_id = -1
+      # user.destroy
 
       get user_path(invalid_user_id)
 
