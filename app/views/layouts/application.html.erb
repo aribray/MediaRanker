@@ -36,7 +36,7 @@
         <%else%>
         <li class="nav-item">
             <% session[:user_id] = nil if User.find_by(id: session[:user_id]).nil?%>
-            <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", current_user_path, class:"btn btn-primary" %>
+            <%= link_to "Logged in as #{User.find_by(id: session[:user_id]).username}", user_path(User.find_by(id: session[:user_id]).id), class:"btn btn-primary" %>
         </li>
         <%end%>
         <li class="nav-item">

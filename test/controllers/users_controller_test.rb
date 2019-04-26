@@ -45,23 +45,6 @@ describe UsersController do
     end
   end
 
-  describe 'current' do
-    it 'returns 200 OK for logged in user' do
-      login_as
-
-      get current_user_path
-
-      must_respond_with :success
-    end
-
-    it 'raises an error if there is no current user (no one is logged in)' do
-      get current_user_path
-
-      expect(flash[:error]).must_equal 'You must be logged in to see this page'
-      must_respond_with :redirect
-    end
-  end
-
   describe 'vote' do
     it 'must change cached_votes_total of the work' do
       login_as
