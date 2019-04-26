@@ -1,0 +1,40 @@
+vote1:
+  user_id: 1
+  work_id: book
+
+vote2:
+  user_id: 1
+  work_id: book1
+
+vote3:
+  user_id: 2
+  work_id: book1
+
+vote4:
+  user_id: 2
+  work_id: book2
+
+vote5:
+  user_id: 1
+  work_id: book3
+
+vote6:
+  user_id: 2
+  work_id: album
+
+vote7:
+  user_id: 1
+  work_id: album
+
+vote8:
+  user_id: 1
+  work_id: album_two
+
+vote9:
+  user_id: 2
+  work_id: album_three
+
+vote10:
+  user_id: 2
+  work_id: album_four
+

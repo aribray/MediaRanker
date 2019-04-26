@@ -49,12 +49,13 @@ class UsersController < ApplicationController
     if @user.nil?
       flash[:error] = 'You must log in before voting!'
       redirect_to root_path
-    elsif @user.voted_for? @work
+    elsif !Vote.new(user_id: @user.id, work_id: @work.id).valid?
       flash[:error] = 'You can only vote for a work once!'
       redirect_to works_path
     else
-      @work.upvote_by @user
-      redirect_to work_path(@work.id)
+      Vote.create(user_id: @user.id, work_id: @work.id)
+      flash[:success] = "Successfully upvoted!"
+      redirect_to works_path
     end
   end
 

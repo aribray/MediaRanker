@@ -5,7 +5,7 @@
 <h4>Votes</h4>
 
 <section class="work">
-  <% votes = @user.find_voted_items %>
+  <% votes = Vote.where(user_id: @user.id) %>
   <% if votes.length > 0 %>
     <table class="table">
     <thead>
@@ -15,6 +15,7 @@
         <th scope="col">Published</th>
         <th scope="col">Category</th>
         <th scope="col">Voted On</th>
+        <th scope="col">Recommended</th>
       </tr> 
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <td><%=work.published%>
         <td><%=work.media%>
         <td><%= readable_date(work.created_at)%>
+        <td><%= work.similar_items(n_results: 1).title%></td>
       </tr>
       <% end %>
   <%else%>

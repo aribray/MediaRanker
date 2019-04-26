@@ -24,13 +24,15 @@ describe User do
     end
   end
 
-  describe 'relationships' do
-    it 'can vote for a Work' do
-      user.up_votes media
+  # describe 'relationships' do
+  #   it 'can vote for a Work' do
+  #     user
+  #     login_as
+  #     vote_path(media.id)
 
-      expect(user.voted_for?(media)).must_equal true
-    end
-  end
+  #     expect(media.votes.last.user_id).must_equal user.id
+  #   end
+  # end
 
   # it 'must have a unique username' do
   #   user = User.create(username: 'MyString')

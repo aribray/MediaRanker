@@ -4,7 +4,6 @@ book:
   title: The Warmth of Other Suns
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -12,7 +11,6 @@ book1:
   title: The
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -20,7 +18,6 @@ book2:
   title: Warmth
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -28,7 +25,6 @@ book3:
   title: Of
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -36,7 +32,6 @@ book4:
   title: Other
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -44,7 +39,6 @@ book5:
   title: Suns
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -52,7 +46,6 @@ book6:
   title: Is
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -60,7 +53,6 @@ book7:
   title: A
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -68,7 +60,6 @@ book8:
   title: Good
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -76,7 +67,6 @@ book9:
   title: Nonfiction
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -84,7 +74,6 @@ book10:
   title: Book
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -92,7 +81,6 @@ book11:
   title: ReadIt
   created_by: Isabel Wilkerson
   published: 2010
-  cached_votes_total: 0
   description: Story of the Great Migration
   media: book
 
@@ -100,7 +88,6 @@ album:
   title: Misery Business
   created_by: Paramore
   published: 2008
-  cached_votes_total: 1
   description: All of my teenage angst in one album
   media: album
 
@@ -108,7 +95,6 @@ album_two:
   title: French Toast
   created_by: Jack Johnson
   published: 1990
-  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album
 
@@ -116,7 +102,6 @@ album_three:
   title: Cheese
   created_by: Bread
   published: 2008
-  cached_votes_total: 1
   description: All of my teenage angst in one album
   media: album
 
@@ -124,7 +109,6 @@ album_four:
   title: Fish
   created_by: Cake
   published: 1990
-  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album
 
@@ -132,7 +116,6 @@ album_five:
   title: Rabbit
   created_by: Warren
   published: 2008
-  cached_votes_total: 1
   description: All of my teenage angst in one album
   media: album
 
@@ -140,7 +123,6 @@ album_six:
   title: Dog
   created_by: House
   published: 1990
-  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album
 
@@ -148,7 +130,6 @@ album_seven:
   title: Bird
   created_by: Box
   published: 2008
-  cached_votes_total: 1
   description: All of my teenage angst in one album
   media: album
 
@@ -156,7 +137,6 @@ album_eight:
   title: Ginger
   created_by: Rogers
   published: 1990
-  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album
 
@@ -164,7 +144,6 @@ album_nine:
   title: Fred
   created_by: Astaire
   published: 1990
-  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album
 
@@ -172,7 +151,6 @@ album_ten:
   title: Gene
   created_by: Wilder
   published: 1990
-  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album
 
@@ -180,6 +158,5 @@ album_eleven:
   title: Gene
   created_by: Wilder
   published: 1990
-  cached_votes_total: 0
   description: Eatin' banana pancakes
   media: album

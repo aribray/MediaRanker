@@ -4,7 +4,9 @@ require 'test_helper'
 require 'pry'
 describe Work do
   let(:album) { works(:album) }
-  let(:user) {users(:one)}
+  let(:user) { users(:one) }
+  let(:vote1) { votes(:vote1) }
+  let(:vote2) { votes(:vote2) }
 
   it 'must be valid' do
     value(album).must_be :valid?
@@ -25,12 +27,11 @@ describe Work do
     end
   end
 
-  describe "relationships" do
-    it "can be voted on" do
-      album.upvote_by user
-
-      expect(album.cached_votes_total).must_equal 1
-      expect(user.voted_for?(album)).must_equal true
+  describe 'relationships' do
+    it 'has many votes' do
+      album.votes << vote1
+      album.votes << vote2
+      expect(album.votes.length).must_equal 2
     end
   end
 
@@ -40,14 +41,13 @@ describe Work do
       expect(results.length).must_equal 10
     end
 
-    it 'can return only works that have upvotes if at least one work has upvotes' do
-      results = Work.top_ten('album')
-      expect(results.length).must_equal 4
-    end
-
+    # it 'can return only works that have upvotes if at least one work has upvotes' do
+    #   results = Work.top_ten('album')
+    #   expect(results.length).must_equal 4
+    # end
   end
 
-  describe 'spotlight' do    
+  describe 'spotlight' do
     it 'selects a random work from a media category' do
       spotlight = Work.spotlight
       expect(spotlight).must_be_kind_of Work

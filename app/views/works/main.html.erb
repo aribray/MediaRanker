@@ -2,7 +2,7 @@
   <section class="spotlight">
     <%spotlight = Work.spotlight%>
     <h2 class="spotlight_header">Media Spotlight: <%= link_to spotlight.title, work_path(spotlight.id),class:"spotlight_link"%> by <%= spotlight.created_by%></h2>
-    <p class="spotlight_description"><%=spotlight.cached_votes_total%> votes. <%= spotlight.description %></p>
+    <p class="spotlight_description"><%=spotlight.votes.length%> votes. <%= spotlight.description %></p>
   </section>
 
   <section class="top_ten_container">
@@ -16,7 +16,7 @@
             <%= link_to movie.title, work_path(movie.id)%>
             <small class="top_creator">by <%= movie.created_by%></small>  
           </h4>
-          <p><%= movie.cached_votes_total%> votes</p>
+          <p><%= movie.votes.length%> votes</p>
         </li>       
       <%end%>
     </section>
@@ -31,7 +31,7 @@
             <%= link_to book.title, work_path(book.id)%>
             <small class="top_creator">by <%= book.created_by%></small>  
           </h4>
-          <p><%= book.cached_votes_total%> votes</p>
+          <p><%= book.votes.length%> votes</p>
         </li> 
       <%end%>
     </section>
@@ -46,7 +46,7 @@
             <%= link_to album.title, work_path(album.id)%>
             <small class="top_creator">by <%= album.created_by%></small>  
           </h4>
-          <p><%= album.cached_votes_total%> votes</p>
+          <p><%= album.votes.length%> votes</p>
         </li> 
       <%end%>
     </section>

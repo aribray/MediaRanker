@@ -12,11 +12,11 @@
   <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger"%>
 </nav>
 
-<h4><%=@work.cached_votes_total%> votes for this <%=@work.media%> </h4>
+<h4><%=@work.votes.length%> votes for this <%=@work.media%> </h4>
 
 <section class="work">
-  <% voters = @work.votes_for.up.by_type(User).voters%>
-  <% if voters.length > 0 %>
+  <% votes = Vote.where(work_id: @work.id)%>
+  <% if votes.length > 0 %>
     <table class="table">
     <thead>
       <tr>
@@ -25,10 +25,11 @@
       </tr> 
     </thead>
     <tbody>
-    <% voters.each do |voter| %>
+    <% votes.each do |voter| %>
+      <% user = User.find_by(id: voter.user_id) %>
       <tr>
-        <th scope="row"><%=voter.username%></th>
-        <td><%= readable_date(voter.updated_at)%>
+        <th scope="row"><%=user.username%></th>
+        <td><%= readable_date(user.updated_at)%>
       </tr>
     <% end %>
   <%else%>

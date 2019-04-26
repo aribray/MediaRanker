@@ -3,10 +3,15 @@
 class Work < ApplicationRecord
   validates :title, presence: true
 
-  acts_as_votable
+  has_many :votes
+  has_many :users, through: :votes
+
+  include SimpleRecommender::Recommendable
+  similar_by :users
 
   def self.top_ten(media)
-    results = Work.where(media: media.to_s).where.not(cached_votes_total: 0).order(cached_votes_total: :desc).order(title: :asc)
+    results = Work.where(media: media.to_s)
+    results = results.sort_by {|result| result.votes.length}
 
     results = Work.where(media: media.to_s) if results.empty?
 
@@ -20,7 +25,8 @@ class Work < ApplicationRecord
   end
 
   def self.spotlight
-    spotlight = Work.order(cached_votes_total: :desc).first
-    spotlight
+    works = Work.all
+    spotlight = works.sort_by {|work| work.votes.length}
+    spotlight.first
   end
 end
