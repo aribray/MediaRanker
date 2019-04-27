@@ -6,9 +6,6 @@ class Work < ApplicationRecord
   has_many :votes
   has_many :users, through: :votes
 
-  include SimpleRecommender::Recommendable
-  similar_by :users
-
   def self.top_ten(media)
     results = Work.where(media: media.to_s)
     results = results.sort_by {|result| result.votes.length}.reverse

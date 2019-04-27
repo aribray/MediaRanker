@@ -46,17 +46,17 @@ describe UsersController do
   end
 
   describe 'vote' do
-    it 'must change cached_votes_total of the work' do
+    it 'must change the votes total of the work and redirect' do
       login_as
       media = works(:album)
       post vote_path(media.id)
 
       must_respond_with :found
+      must_respond_with :redirect
 
       expect(media.votes.length).must_equal 1
     end
 
-    # a guest user cannot vote unless they're logged in
     it 'prohibits a guest user from voting until they have logged in' do
       post vote_path(media.id)
 

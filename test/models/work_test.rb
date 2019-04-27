@@ -40,11 +40,6 @@ describe Work do
       results = Work.top_ten('book')
       expect(results.length).must_equal 10
     end
-
-    # it 'can return only works that have upvotes if at least one work has upvotes' do
-    #   results = Work.top_ten('album')
-    #   expect(results.length).must_equal 4
-    # end
   end
 
   describe 'spotlight' do
