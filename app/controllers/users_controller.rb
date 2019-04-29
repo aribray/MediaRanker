@@ -16,21 +16,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def login_form
-  #   @user = User.new
-  # end
-
-  # def login
-  #   if @user.nil?
-  #     @user = User.create(username: params[:user][:username])
-  #     session[:user_id] = @user.id
-  #   else
-  #     # elsif @user.valid?
-  #     session[:user_id] = @user.id
-  #   end
-  #   redirect_to root_path
-  # end
-
   def create
     auth_hash = request.env['omniauth.auth']
 
@@ -74,11 +59,6 @@ class UsersController < ApplicationController
 
     redirect_to root_path
   end
-
-  # def logout
-  #   session[:user_id] = nil
-  #   redirect_to root_path
-  # end
 
   def vote
     @work = Work.find_by(id: params[:id])
