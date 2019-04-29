@@ -37,14 +37,14 @@ class UsersController < ApplicationController
     user = User.find_by(uid: auth_hash[:uid], provider: 'github')
     if user
       # User was found in the database
-      flash[:success] = "Logged in as returning user #{user.name}"
+      flash[:success] = "Logged in as returning user #{user.email}"
     else
       # User doesn't match anything in the DB
       # Attempt to create a new user
       user = User.build_from_github(auth_hash)
 
       if user.save
-        flash[:success] = "Logged in as new user #{user.name}"
+        flash[:success] = "Logged in as new user #{user.email}"
       else
         # Couldn't save the user for some reason. If we
         # hit this it probably means there's a bug with the
@@ -55,6 +55,7 @@ class UsersController < ApplicationController
         return redirect_to root_path
       end
     end
+
     # If we get here, we have a valid user instance
     session[:user_id] = user.id
     redirect_to root_path
@@ -98,7 +99,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    session[:user_id] = nil if User.find_by(id: session[:user_id]).nil?
-    @user = User.find_by(id: session[:user_id])
+    session[:user_id] = nil if User.find_by(uid: auth_hash[:uid], provider: 'github').nil?
+    @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
   end
 end
