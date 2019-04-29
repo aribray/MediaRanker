@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    session[:user_id] = nil if User.find_by(uid: auth_hash[:uid], provider: 'github').nil?
-    @user = User.find_by(uid: auth_hash[:uid], provider: 'github')
+    session[:user_id] = nil if User.find_by(id: session[:user_id]).nil?
+    @user = User.find_by(id: session[:user_id])
   end
 end
